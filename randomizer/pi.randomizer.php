@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
-Copyright (C) 2004 - 2011 EllisLab, Inc.
+Copyright (C) 2004 - 2015 EllisLab, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,42 +25,33 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from EllisLab, Inc.
 */
 
-$plugin_info = array(
-						'pi_name'			=> 'Randomizer',
-						'pi_version'			=> '1.1',
-						'pi_author'			=> 'Rick Ellis',
-						'pi_author_url'		=> 'http://expressionengine.com/',
-						'pi_description'		=> 'Allows you to show random text, such as quotes, on your site.',
-						'pi_usage'			=> Randomizer::usage()
-					);
 
 /**
  * Randomizer Class
  *
  * @package			ExpressionEngine
  * @category		Plugin
- * @author			ExpressionEngine Dev Team
- * @copyright		Copyright (c) 2004 - 2011, EllisLab, Inc.
- * @link			http://expressionengine.com/downloads/details/character_limiter/
+ * @author			EllisLab
+ * @copyright		Copyright (c) 2004 - 2015, EllisLab, Inc.
+ * @link			https://github.com/EllisLab/Randomizer
  */
-
 class Randomizer {
-	
-	var $return_data;
+
+	public $return_data;
 
 	/**
 	 * Constructor
 	 *
 	 */
-	function randomizer()
+	function __construct()
 	{
-		$this->EE =& get_instance();		
+		// nada
 	}
 
 	// --------------------------------------------------------------------
-	
+
 	function set_one()
-	{	
+	{
 		$quotes = array(
 						"I find that the harder I work, the more luck I seem to have. - Thomas Jefferson",
 						"Don't stay in bed, unless you can make money in bed. - George Burns",
@@ -77,62 +68,11 @@ class Randomizer {
 						"Never trust a computer you can't throw out a window - Steve Wozniak",
 						"Do, or do not.  There is no 'try'. - Yoda" // No comma after the last item
 						);
-	
-	
+
+
 		return $quotes[array_rand($quotes)];
 	}
-	
-	
-	// --------------------------------------------------------------------
-	
-	/**
-	 * Usage
-	 *
-	 * Plugin Usage
-	 *
-	 * @access	public
-	 * @return	string
-	 */
-	function usage()
-	{
-		ob_start(); 
-		?>
-		Open this file: /plugins/pi.randomizer.php
-
-		Fill the array with as many quotes as you want.
-
-		Then place the following tag in any of your templates:
-
-		{exp:randomizer:set_one}
-
-		To add another sets of quotes, add another function:
-
-		function set_two()
-		{
-			$quotes = array( FILL WITH QUOTES);
-
-			return $quotes[array_rand($quotes)];	
-		}
-
-		Then use this tag in your template:
-
-		{exp:randomizer:set_two}
-
-		Version 1.1
-		******************
-		- Updated plugin to be 2.0 compatible
-
-		<?php
-		$buffer = ob_get_contents();
-	
-		ob_end_clean(); 
-
-		return $buffer;
-	}
 
 	// --------------------------------------------------------------------
-	
+
 }
-
-/* End of file pi.randomizer.php */
-/* Location: ./system/expressionengine/randomizer/pi.randomizer.php */
