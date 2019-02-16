@@ -1,10 +1,10 @@
 language: php
 
 php:
-  - 5.4
-  - 5.5
   - 5.6
   - 7.0
+  - 7.1
+  - 7.3
 
 install:
   - composer install
@@ -19,10 +19,10 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: TtGt49T6ZcF2BJ77l1yUt10mzD7F/A/rRCnUrIkC91nEGn07A3h5gMSQfe31LHcBzF3nzh0VOds7elJ6jQn/Fl0I3qjWn1RfgS0qP8QxQO6QbPzwfalfuAfI4k9xWguvffdUyHV+NeEuROt0yZMi40Q2A+9ajFMt8MlZyrwtPR8=
+    secure: KWQpnqVoXAxVa7FSizWGp3rIcd48pwov+4LW5J9R6oomcSYdqomx0TGNxkHQlUzz+hXDnZ9Na57giHXd1iaIXAccNMh7fxzCnJlsVcxWwM2/qavxuMxmn/qF7bcpFglOnyvSEKNFUIs2Tt79AdAFc7CQBERgXNaKepGFkLd3DVGpVsPP/0JAagNBz/FuD71qh638v/knnavtdPMq3TZrSirNsABNciJQ4Lgvr5vDeIag/GLQTo5IgQ9nb51onDg4tEwoBHjUpv2NbOP6qapVEYmqd4ebQirh/RF/5L2q4vVhjvMJGlnD4x+76X9LGaTZyZDTIegx9St9v/IelONu9ue2nWqEj/fZTTwhDp42upowFs157Ia05YRgiaJnxt0QD3uwf6zRQXuxhb3QQM2Ve3t/cfI8Ij3MkGx/HUzyHJn3W2CMTunipqdXp5xF3cOg5XATfPyranP49pbAeuZvtl8V+Zr+dBohQXAhJ55s9gJTur9bsQ+F11Mee05P2v0AAmv2RnGx5b+nZh3i0jwnpg1NyDVjwsq3zJgDTbdcecVsoDfms5kcLuL08YoOcswhmOT2vdpV9IzjfMwckxQ5aNxhVrpyeUpEbZUANGjxPtqOD/3414XKNgyq90ISDkhtLOarwXOM0JnH7rzc3x/RqAJ+xR4eQzIIK0QEJIq1+Go=
   file: "Randomizer.zip"
   skip_cleanup: true
   on:
-    php: 7.0
+    php: 7.3
     tags: true
     condition: $TRAVIS_PULL_REQUEST = false
