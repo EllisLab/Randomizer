@@ -1,0 +1,28 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+
+install:
+  - composer install
+
+script:
+  - randomizer/vendor/bin/parallel-lint --exclude randomizer/vendor .
+
+before_deploy:
+  - composer install --no-dev
+  - zip -r 'Randomizer' randomizer
+
+deploy:
+  provider: releases
+  api_key:
+    secure: TtGt49T6ZcF2BJ77l1yUt10mzD7F/A/rRCnUrIkC91nEGn07A3h5gMSQfe31LHcBzF3nzh0VOds7elJ6jQn/Fl0I3qjWn1RfgS0qP8QxQO6QbPzwfalfuAfI4k9xWguvffdUyHV+NeEuROt0yZMi40Q2A+9ajFMt8MlZyrwtPR8=
+  file: "Randomizer.zip"
+  skip_cleanup: true
+  on:
+    php: 7.0
+    tags: true
+    condition: $TRAVIS_PULL_REQUEST = false
