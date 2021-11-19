@@ -107,6 +107,10 @@ Use `{randomizer:items}{/randomizer:items}` to define each item you want to incl
 
 ## Change Log
 
+### 3.0.1
+
+- Added add-on icon. Updated license and author information
+
 ### 3.0.0
 
 - Complete rewritten, with two new tags:
